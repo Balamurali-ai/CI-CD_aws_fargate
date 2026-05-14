@@ -3,167 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AWS CI/CD Product Store</title>
+    <title>Foodie's Delight</title>
 
-    <style>
-
-        *{
-            margin:0;
-            padding:0;
-            box-sizing:border-box;
-            font-family:Arial, Helvetica, sans-serif;
-        }
-
-        body{
-            background: linear-gradient(135deg,#141e30,#243b55);
-            min-height:100vh;
-            display:flex;
-            justify-content:center;
-            align-items:center;
-            color:white;
-        }
-
-        .container{
-            width:90%;
-            max-width:1000px;
-            background:white;
-            color:#333;
-            border-radius:20px;
-            overflow:hidden;
-            display:flex;
-            box-shadow:0 15px 40px rgba(0,0,0,0.4);
-        }
-
-        .left{
-            flex:1;
-            background:#f5f5f5;
-            display:flex;
-            justify-content:center;
-            align-items:center;
-            padding:30px;
-        }
-
-        .left img{
-            width:100%;
-            max-width:400px;
-            transition:0.4s;
-        }
-
-        .left img:hover{
-            transform:scale(1.05);
-        }
-
-        .right{
-            flex:1;
-            padding:50px;
-        }
-
-        .tag{
-            background:#4CAF50;
-            color:white;
-            display:inline-block;
-            padding:8px 16px;
-            border-radius:20px;
-            font-size:14px;
-            margin-bottom:20px;
-        }
-
-        h1{
-            font-size:40px;
-            margin-bottom:20px;
-        }
-
-        p{
-            line-height:1.8;
-            margin-bottom:25px;
-            color:#555;
-        }
-
-        .price{
-            font-size:36px;
-            color:#e91e63;
-            margin-bottom:25px;
-            font-weight:bold;
-        }
-
-        .btn{
-            display:inline-block;
-            padding:15px 35px;
-            background:#141e30;
-            color:white;
-            text-decoration:none;
-            border-radius:10px;
-            transition:0.3s;
-            font-weight:bold;
-        }
-
-        .btn:hover{
-            background:#243b55;
-            transform:translateY(-3px);
-        }
-
-        .footer{
-            margin-top:30px;
-            font-size:14px;
-            color:#777;
-        }
-
-        @media(max-width:768px){
-
-            .container{
-                flex-direction:column;
-            }
-
-            .right{
-                padding:30px;
-            }
-
-            h1{
-                font-size:32px;
-            }
-        }
-
-    </style>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 
 <body>
 
-    <div class="container">
+    <header>
+        <h1>🍽 Foodie's Delight</h1>
+        <p>Delicious Food Delivered Fresh</p>
+    </header>
 
-        <div class="left">
-            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=800"
-                 alt="Product">
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Discover Amazing Food</h2>
+            <p>Fresh ingredients, tasty meals, and beautiful dining experiences.</p>
+
+            <button>Order Now</button>
+        </div>
+    </section>
+
+    <section class="menu-section">
+
+        <h2>Our Popular Menu</h2>
+
+        <div class="menu-container">
+
+            {% for food in foods %}
+
+            <div class="food-card">
+
+                <img src="{{ food.image }}" alt="{{ food.name }}">
+
+                <div class="card-content">
+
+                    <h3>{{ food.name }}</h3>
+
+                    <p class="price">{{ food.price }}</p>
+
+                    <button>Add to Cart</button>
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
         </div>
 
-        <div class="right">
+    </section>
 
-            <div class="tag">
-                🚀 CI/CD DEPLOYMENT SUCCESS
-            </div>
-
-            <h1>Nike Air Max</h1>
-
-            <p>
-                Experience premium comfort and modern design with the latest
-                Nike Air Max sneakers. Built for performance and style,
-                deployed automatically using AWS ECS Fargate CI/CD Pipeline.
-            </p>
-
-            <div class="price">
-                $149
-            </div>
-
-            <a href="#" class="btn">
-                Buy Now
-            </a>
-
-            <div class="footer">
-                Powered by Flask + Docker + AWS ECS Fargate + CodePipeline
-            </div>
-
-        </div>
-
-    </div>
+    <footer>
+        <p>© 2026 Foodie's Delight | AWS ECS Fargate Deployment Demo</p>
+    </footer>
 
 </body>
 </html>
