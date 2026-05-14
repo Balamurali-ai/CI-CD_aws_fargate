@@ -3,9 +3,150 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Foodie's Delight</title>
 
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, sans-serif;
+        }
+
+        body{
+            background:#f4f4f4;
+            color:#333;
+        }
+
+        header{
+            background:linear-gradient(90deg,#ff512f,#dd2476);
+            color:white;
+            text-align:center;
+            padding:25px;
+        }
+
+        header h1{
+            font-size:3rem;
+            margin-bottom:10px;
+        }
+
+        .hero{
+            height:60vh;
+            background-image:url('https://images.unsplash.com/photo-1504674900247-0877df9cc836');
+            background-size:cover;
+            background-position:center;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            text-align:center;
+            color:white;
+        }
+
+        .hero-content{
+            background:rgba(0,0,0,0.6);
+            padding:30px;
+            border-radius:10px;
+        }
+
+        .hero-content h2{
+            font-size:3rem;
+            margin-bottom:15px;
+        }
+
+        .hero-content p{
+            font-size:1.2rem;
+            margin-bottom:20px;
+        }
+
+        .hero-content button{
+            padding:12px 25px;
+            border:none;
+            background:#ff5722;
+            color:white;
+            border-radius:5px;
+            cursor:pointer;
+            font-size:1rem;
+        }
+
+        .hero-content button:hover{
+            background:#e64a19;
+        }
+
+        .menu-section{
+            padding:50px 30px;
+        }
+
+        .menu-section h2{
+            text-align:center;
+            margin-bottom:40px;
+            font-size:2.5rem;
+        }
+
+        .menu-container{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+            gap:25px;
+        }
+
+        .food-card{
+            background:white;
+            border-radius:12px;
+            overflow:hidden;
+            box-shadow:0 4px 10px rgba(0,0,0,0.1);
+            transition:transform 0.3s;
+        }
+
+        .food-card:hover{
+            transform:translateY(-10px);
+        }
+
+        .food-card img{
+            width:100%;
+            height:220px;
+            object-fit:cover;
+        }
+
+        .card-content{
+            padding:20px;
+            text-align:center;
+        }
+
+        .card-content h3{
+            margin-bottom:10px;
+            font-size:1.5rem;
+        }
+
+        .price{
+            color:#ff5722;
+            font-weight:bold;
+            margin-bottom:15px;
+        }
+
+        .card-content button{
+            padding:10px 20px;
+            border:none;
+            background:#ff5722;
+            color:white;
+            border-radius:5px;
+            cursor:pointer;
+        }
+
+        .card-content button:hover{
+            background:#e64a19;
+        }
+
+        footer{
+            background:#222;
+            color:white;
+            text-align:center;
+            padding:20px;
+            margin-top:40px;
+        }
+
+    </style>
+
 </head>
 
 <body>
@@ -16,12 +157,20 @@
     </header>
 
     <section class="hero">
+
         <div class="hero-content">
+
             <h2>Discover Amazing Food</h2>
-            <p>Fresh ingredients, tasty meals, and beautiful dining experiences.</p>
+
+            <p>
+                Fresh ingredients, tasty meals,
+                and beautiful dining experiences.
+            </p>
 
             <button>Order Now</button>
+
         </div>
+
     </section>
 
     <section class="menu-section">
